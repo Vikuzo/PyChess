@@ -1,12 +1,13 @@
 class ChessPiece(object):
-    def __init__(self, row:int, column:int, color:chr):
+    def __init__(self, row:int, column:int, color:chr, name:str):
         self.row = row
         self.column = column
         self.color = color
+        self.__name = name
 
     # Returns a string containing cooordinates of the piece
     def __str__(self)->str:
-        return str(self.color) + ":(" + str(self.row) + ", " + str(self.column) + ")"
+        return self.name
 
     # Declaration decorators for attribute: row
     @property
@@ -41,6 +42,15 @@ class ChessPiece(object):
             raise ValueError("Unacceptable color for a chess piece")
         self.__color = color
 
+    # Declaration decorators for attribute: name
+    @property
+    def name(self)->str:
+        return self.__name
+    
+    @name.setter
+    def name(self)->None: # Modifying attribute name after creation forbidden
+        return
+
     # Abstract method that will implement what moves can be made by a
     # player for that specific piece
     def allowedMoves(self, chessboard:list[list])->tuple:
@@ -71,7 +81,12 @@ class ChessPiece(object):
     
 class Pawn(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        super().__init__(row, column, color)
+        if color == 'w':
+            name = "whitePawn"
+        elif color == 'b':
+            name = "blackPawn"
+
+        super().__init__(row, column, color, name)
         self.__firstMove = True
         self.__transformable = False
 
@@ -128,24 +143,49 @@ class Pawn(ChessPiece):
 # TO IMPLEMENT
 class Rook(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        super().__init__(row, column, color)
+        if color == 'w':
+            name = "whiteRook"
+        elif color == 'b':
+            name = "blackRook"
+
+        super().__init__(row, column, color, name)
 
 # TO IMPLEMENT
 class Knight(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        super().__init__(row, column, color)
+        if color == 'w':
+            name = "whiteKnight"
+        elif color == 'b':
+            name = "blackKnight"
+
+        super().__init__(row, column, color, name)
 
 # TO IMPLEMENT
 class Bishop(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        super().__init__(row, column, color)
+        if color == 'w':
+            name = "whiteBishop"
+        elif color == 'b':
+            name = "blackBishop"
+
+        super().__init__(row, column, color, name)
 
 # TO IMPLEMENT
 class Queen(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        super().__init__(row, column, color)
+        if color == 'w':
+            name = "whiteQueen"
+        elif color == 'b':
+            name = "blackQueen"
+
+        super().__init__(row, column, color, name)
 
 #TO IMPLEMENT
 class King(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        super().__init__(row, column, color)
+        if color == 'w':
+            name = "whiteKing"
+        elif color == 'b':
+            name = "blackKing"
+
+        super().__init__(row, column, color, name)

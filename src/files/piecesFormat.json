@@ -1,0 +1,30 @@
+{
+    "Unicode":{
+        "blackKing": "\u2654",
+        "blackQueen": "\u2655",
+        "blackRook": "\u2656",
+        "blackBishop": "\u2657",
+        "blackKnight": "\u2658",
+        "blackPawn":"\u2659",
+        "whiteKing":"\u265A",
+        "whiteQueen": "\u265B",
+        "whiteRook": "\u265C",
+        "whiteBishop": "\u265D",
+        "whiteKnight":"\u265E",
+        "whitePawn":"\u265F"
+    },
+    "images":{
+        "blackKing": "src/gameImages/blackKing.png",
+        "blackQueen": "src/gameImages/blackQueen.png",
+        "blackRook": "src/gameImages/blackRook.png",
+        "blackBishop": "src/gameImages/blackBishop.png",
+        "blackKnight": "src/gameImages/blackKnight.png",
+        "blackPawn":"src/gameImages/blackPawn.png",
+        "whiteKing":"src/gameImages/whiteKing.png",
+        "whiteQueen": "src/gameImages/whiteQueen.png",
+        "whiteRook": "src/gameImages/whiteRook.png",
+        "whiteBishop": "src/gameImages/whiteBishop.png",
+        "whiteKnight":"src/gameImages/whiteKnight.png",
+        "whitePawn":"src/gameImages/whitePawn.png"
+    }
+}
