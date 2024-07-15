@@ -2,7 +2,7 @@ import json
 from chessboard import Chessboard
 from chessPieces import ChessPiece
 
-# Retrieving the format informatino from the json file --> piecesFormat.json
+# Retrieving the format informations from the json file --> piecesFormat.json
 with open("src/files/piecesFormat.json") as jsonFile:
     piecesFormat = json.load(jsonFile)
 
@@ -15,14 +15,15 @@ def getRightUnicodeChr(item:ChessPiece)->str:
 
 # Function to print the chessboard on the terminal
 def printOnCommenadLine(chessboard:Chessboard)->None:
-    print("\n\n")
-    print(" —— —— —— —— —— —— —— ——")
+    print("\n")
+    print("    A  B  C  D  E  F  G  H")
+    print("   —— —— —— —— —— —— —— ——")
 
-    for list in chessboard.chessboard:
-        print("|", end="")
-        for item in list:
+    for i in range(0, len(chessboard.chessboard), 1):
+        print(str(len(chessboard.chessboard) - i) + " |", end="")
+        for item in chessboard.chessboard[i]:
             print(getRightUnicodeChr(item), end=" |")
-        print("\n —— —— —— —— —— —— —— ——")
+        print("\n   —— —— —— —— —— —— —— ——")
 
 def __main__():
     chessboard = Chessboard()

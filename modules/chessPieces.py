@@ -1,3 +1,9 @@
+import json
+
+# Retrieving the constants information
+with open("src/files/piecesConstant.json") as jsonFile:
+    piecesConstant = json.load(jsonFile)
+
 class ChessPiece(object):
     def __init__(self, row:int, column:int, color:chr, name:str):
         self.row = row
@@ -81,10 +87,10 @@ class ChessPiece(object):
     
 class Pawn(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        if color == 'w':
-            name = "whitePawn"
-        elif color == 'b':
-            name = "blackPawn"
+        if color == piecesConstant["color"]["white"]:
+            name = piecesConstant["name"]["whitePawn"]
+        elif color == piecesConstant["color"]["black"]:
+            name = piecesConstant["name"]["blackPawn"]
 
         super().__init__(row, column, color, name)
         self.__firstMove = True
@@ -99,22 +105,22 @@ class Pawn(ChessPiece):
     def allowedMoves(self, chessboard:list[list])->tuple:
         allowedMoves = list()
         
-        if self.color == 'w':
+        if self.color == piecesConstant["color"]["white"]:
             direction = 1
         else:
             direction = -1
         
         try:
             if self.__firstMove:
-                if chessboard[self.getPosition()[0]][self.getPosition()[1] + direction] == None \
-                and chessboard[self.getPosition()[0]][self.getPosition()[1] + (direction * 2)] == None:
-                    allowedMoves.append((self.getPosition()[0], self.getPosition()[1] + (2*direction)))
+                if chessboard[self.getPosition()[0] + direction][self.getPosition()[1]] == None \
+                and chessboard[self.getPosition()[0] + (direction * 2)][self.getPosition()[1]] == None:
+                    allowedMoves.append((self.getPosition()[0] + (2*direction)), self.getPosition()[1])
         except IndexError:
             raise IndexError("There should not be any error occurring at this state") 
 
         try:
-            if chessboard[self.getPosition()[0]][self.getPosition()[1] + direction] == None:
-                allowedMoves.append((self.getPosition()[0], self.getPosition()[1] + direction))
+            if chessboard[self.getPosition()[0] + direction][self.getPosition()[1]] == None:
+                allowedMoves.append((self.getPosition()[0] + direction, self.getPosition()[1]))
         except IndexError:
             self.__transformable = True
         
@@ -127,8 +133,8 @@ class Pawn(ChessPiece):
             pass
 
         try:
-            if chessboard[self.getPosition()[0] - direction][self.getPosition()[1] + direction].color != self.color:
-                allowedMoves.append((self.getPosition()[0] - direction, self.getPosition()[1] + direction))
+            if chessboard[self.getPosition()[0] + direction][self.getPosition()[1] - direction].color != self.color:
+                allowedMoves.append((self.getPosition()[0] + direction, self.getPosition()[1] - direction))
         except IndexError:
             pass
 
@@ -143,49 +149,49 @@ class Pawn(ChessPiece):
 # TO IMPLEMENT
 class Rook(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        if color == 'w':
-            name = "whiteRook"
-        elif color == 'b':
-            name = "blackRook"
+        if color == piecesConstant["color"]["white"]:
+            name = piecesConstant["name"]["whiteRook"]
+        elif color == piecesConstant["color"]["black"]:
+            name = piecesConstant["name"]["blackRook"]
 
         super().__init__(row, column, color, name)
 
 # TO IMPLEMENT
 class Knight(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        if color == 'w':
-            name = "whiteKnight"
-        elif color == 'b':
-            name = "blackKnight"
+        if color == piecesConstant["color"]["white"]:
+            name = piecesConstant["name"]["whiteKnight"]
+        elif color == piecesConstant["color"]["black"]:
+            name = piecesConstant["name"]["blackKnight"]
 
         super().__init__(row, column, color, name)
 
 # TO IMPLEMENT
 class Bishop(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        if color == 'w':
-            name = "whiteBishop"
-        elif color == 'b':
-            name = "blackBishop"
+        if color == piecesConstant["color"]["white"]:
+            name = piecesConstant["name"]["whiteBishop"]
+        elif color == piecesConstant["color"]["black"]:
+            name = piecesConstant["name"]["blackBishop"]
 
         super().__init__(row, column, color, name)
 
 # TO IMPLEMENT
 class Queen(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        if color == 'w':
-            name = "whiteQueen"
-        elif color == 'b':
-            name = "blackQueen"
+        if color == piecesConstant["color"]["white"]:
+            name = piecesConstant["name"]["whiteQueen"]
+        elif color == piecesConstant["color"]["black"]:
+            name = piecesConstant["name"]["blackQueen"]
 
         super().__init__(row, column, color, name)
 
 #TO IMPLEMENT
 class King(ChessPiece):
     def __init__(self, row:int, column:int, color:chr):
-        if color == 'w':
-            name = "whiteKing"
-        elif color == 'b':
-            name = "blackKing"
+        if color == piecesConstant["color"]["white"]:
+            name = piecesConstant["name"]["whiteKing"]
+        elif color == piecesConstant["color"]["black"]:
+            name = piecesConstant["name"]["blackKing"]
 
         super().__init__(row, column, color, name)

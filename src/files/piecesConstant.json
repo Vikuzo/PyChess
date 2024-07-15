@@ -1,0 +1,20 @@
+{
+    "color":{
+        "white":"w",
+        "black":"b"
+    },
+    "name":{
+        "blackKing": "blackKing",
+        "blackQueen": "blackQueen",
+        "blackRook": "blackRook",
+        "blackBishop": "blackBishop",
+        "blackKnight": "blackKnight",
+        "blackPawn":"blackPawn",
+        "whiteKing":"whiteKing",
+        "whiteQueen": "whiteQueen",
+        "whiteRook": "whiteRook",
+        "whiteBishop": "whiteBishop",
+        "whiteKnight":"whiteKnight",
+        "whitePawn":"whitePawn"
+    }
+}
