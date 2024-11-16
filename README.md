@@ -6,3 +6,6 @@ You **MUST** install the libraries in the <b>requirements.txt</b>, you can find 
     pip install -r requirements.txt
 ```
 ## Program structure
+
+## License
+[GNU GENERAL PUBLIC LICENSE](LICENSE.md)
