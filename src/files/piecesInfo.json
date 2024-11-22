@@ -1,5 +1,9 @@
 {
-    "Unicode":{
+    "color":{
+        "white":"w",
+        "black":"b"
+    },
+    "name":{
         "blackKing": "\u2654",
         "blackQueen": "\u2655",
         "blackRook": "\u2656",
