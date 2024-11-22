@@ -6,7 +6,7 @@ You **MUST** install the libraries in the <b>requirements.txt</b> to run this, y
     pip install -r requirements.txt
 ```
 If you need any informations regarding the pip command you can open the this link: [pip](https://pypi.org/project/pip/)
-## Program structure
+# Program structure
 
-## License
+# License
 [GNU GENERAL PUBLIC LICENSE](LICENSE.md)
